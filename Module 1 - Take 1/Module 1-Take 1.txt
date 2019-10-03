@@ -1,3 +1,4 @@
 ﻿Start here--
 Writing a story using GitHub can be tough but...
 We'll figure it out
+Starting one at a time

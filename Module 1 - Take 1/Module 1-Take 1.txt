@@ -1,5 +1,10 @@
-﻿Start here--
+Start here--
 Writing a story using GitHub can be tough but...
 We'll figure it out
 Starting one at a time
+<<<<<<< HEAD
 Once upon a time
+=======
+Also one line at a time.
+
+>>>>>>> 5762d884853b14c53273fc35793d938068a4c10f

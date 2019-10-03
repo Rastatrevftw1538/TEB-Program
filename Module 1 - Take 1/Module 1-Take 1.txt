@@ -2,13 +2,6 @@ Start here--
 Writing a story using GitHub can be tough but...
 We'll figure it out
 Starting one at a time
-<<<<<<< HEAD
 Once upon a time
-=======
 Also one line at a time.
-<<<<<<< HEAD
-test
-=======
 Should we rhyme?
->>>>>>> 5762d884853b14c53273fc35793d938068a4c10f
->>>>>>> 1523d5633cbbe6638d882677c127652c635a9391

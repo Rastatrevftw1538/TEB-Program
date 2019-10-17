@@ -1,6 +1,6 @@
 
 h1 {
-  color: blue;
+  color: rgb(240, 236, 115);
   font-family: verdana;
   font-size: 300%;
 }
@@ -9,3 +9,6 @@ p  {
   font-family: courier;
   font-size: 160%;
 }
+table, th, td {
+    border: 1px solid black;
+  }

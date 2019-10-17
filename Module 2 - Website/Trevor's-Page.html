@@ -1,18 +1,28 @@
 <html>
     <head>
         <img src="Images/ProfilePicture.PNG" alt="Profile Picture" width="240" height="240" style="
-            opacity: inherit;">
+            opacity: inherit; border: 3px solid rgb(109, 109, 109);">
         <h1>Welcome to my Portfolio</h1>
-        <p>My name is Trevor Cardoza.
-            I am a Business Administration and Business Analytics Major with a minor in Computer Science.
-            <div#first>My dream job is to work in the gaming industry as a game programmer.
-            I also am really interested in DevOps and Cyber Security.</div#first>
-        </p>
+        <p>My name is Trevor Cardoza.</p>
     </head>
+    <body>
+        <p>I am a Business Administration and Business Analytics Major with a minor in Computer Science.
+        <div#first>My dream job is to work in the gaming industry as a game programmer.
+        I also am really interested in DevOps and Cyber Security.</div#first></p>
+        <a href="Files/Python Snake Game.zip" style="color: aqua; font-family: sans-serif;">Click here for my CS Final Project</a>
+    </body>
+    <script>
+    function onClick(){
+        alert("Oh you clicked on it.")
+    }
+    </script>
     <style>
+        .clearfix {
+            overflow: auto;
+        }
         div#first{
             color: white;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: sans-serif;
         }
         body{
             background-image: url(Images/PrettyThing.jpeg);
@@ -21,13 +31,15 @@
               background-size: cover;
         }
         h1{
+            font-size: 300%;
             color: white;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: sans-serif;
         }
         p{
             color: white;
             font-size: large;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: sans-serif;
         }
     </style>
+
 </html>

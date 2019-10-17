@@ -4,7 +4,8 @@ body {
 h1 {
     background-color: black;
     color: rgb(240, 236, 115);
-    font-family: verdana;
+    font-size: 300%;
+    font-family: courier;
     font-size: 300%;
 }
 p  {

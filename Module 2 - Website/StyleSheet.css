@@ -1,4 +1,6 @@
-
+body {
+    background-color: black;
+}
 h1 {
   color: rgb(121, 89, 60);
   font-family: sans-serif;
@@ -10,6 +12,7 @@ p  {
   font-size: 160%;
 }
 table, th, td {
+    color: white;
     width: 50%;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
   }

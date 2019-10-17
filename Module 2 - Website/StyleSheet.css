@@ -7,7 +7,7 @@ body {
 img{
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    display: inline;
     border: 1px solid rgb(109, 109, 109);
 }
 h1 {
@@ -30,9 +30,9 @@ td{
     border: 1px solid rgb(109, 109, 109);
 }
 table {
+    display: table;
     border-collapse: collapse;
     color: rgb(0, 0, 0);
-    width: 65%;
     border: 1px solid rgb(109, 109, 109);
   }
 a{

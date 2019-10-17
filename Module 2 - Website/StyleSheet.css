@@ -1,15 +1,19 @@
-
+body {
+    background-color: black;
+}
 h1 {
-  color: rgb(240, 236, 115);
-  font-family: verdana;
-  font-size: 300%;
+    background-color: black;
+    color: rgb(240, 236, 115);
+    font-family: verdana;
+    font-size: 300%;
 }
 p  {
-  color: red;
+  color: rgb(255, 255, 255);
   font-family: courier;
   font-size: 160%;
 }
 table, th, td {
+    color: white;
     width: 50%;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
   }

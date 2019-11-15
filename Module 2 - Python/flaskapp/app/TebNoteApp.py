@@ -8,7 +8,7 @@ from nltk.corpus import wordnet
 
 import sys
 
-nltk.download('wordnet')
+nltk.download('wordnet') 
 
 import io
 

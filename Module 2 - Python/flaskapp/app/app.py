@@ -1,7 +1,7 @@
 from flask import *
 from app.TebNoteApp import main
 import os
-from subprocess import * 
+from subprocess import *
 #import cardoza_make_a_move
 
 app = Flask(__name__)

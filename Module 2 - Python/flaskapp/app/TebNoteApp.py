@@ -17,9 +17,9 @@ import io
 import os
 
 def main(Input):
-    regex = re.compile("([\w\S]*|[\w\s]*)[\s]([\d]*)")
+    regex = re.compile("([\w\S]*|[\w]*)[\s]([\d\S]*$)")
     root = os.path.dirname(os.path.abspath("AFINN-111.txt"))
-    read = open(os.path.join(root,'Corpus/AFINN-111.txt'),'r')
+    read = open(os.path.join(root,'app/Corpus/AFINN-111.txt'),'r')
     corpusThing = read.read()
     real_file = str(Input.lower())
     pos_num = 0
@@ -51,9 +51,10 @@ def main(Input):
                     if x == i.name() and times <= 0:
                         print(x," word_in_sent")
                         print(i.name()," matched syn")
-                        if int(emotion_words[emo_wrd]) > 0:
+                        check = float(emotion_words[emo_wrd])
+                        if check > 0:
                             pos_num += int(emotion_words[emo_wrd])
-                        elif int(emotion_words[emo_wrd]) < 0:
+                        elif check < 0:
                             neg_num += int(emotion_words[emo_wrd])
                         times += 1
                         break

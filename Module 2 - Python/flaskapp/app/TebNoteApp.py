@@ -17,7 +17,7 @@ import io
 import os
 
 def main(Input):
-    regex = re.compile("([\w\S]*|[\w]*)[\s]([\d\S]*$)")
+    regex = re.compile("([\w]*)[\s]([\d\S]{2}|[\d]{1})[\n]")
     root = os.path.dirname(os.path.abspath("AFINN-111.txt"))
     read = open(os.path.join(root,'app/Corpus/AFINN-111.txt'),'r')
     corpusThing = read.read()
@@ -78,6 +78,6 @@ def main(Input):
     note_final = note_thing#+"\n"+note_thing2
     print(note_final)
     return note_final,Input
-main("hello i like some kind of food")
-#if __name__ == '__main__':
-    #globals()[sys.argv[1]](sys.argv[2])
+#main("hello i like some kind of food")
+if __name__ == '__main__':
+    globals()[sys.argv[1]](sys.argv[2])

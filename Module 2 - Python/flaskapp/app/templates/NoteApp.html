@@ -1,16 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
 <html>
     <head>
-        <h1>
-            Note: {{copy}}
-        </h1>
         <h2>
-            {{note}}
+            Note: {{copy}}
         </h2>
+        <h3>
+            {{note}}
+        </h3>
+        <h4>
+            Words found (p=positive n=negative): {{matches}}
+        </h4>
         {%block body%} 
         <form action="{{ url_for('Note') }}" method="post" >
-            <textarea rows="50" cols="100" type="text" name="Note">Enter anything you want to scan: </textarea>
+            <textarea rows="50" cols="100" type="text" name="Note" placeholder="Enter anything you want to scan: "></textarea>
             <button>Submit</button>
         </form>
-        {%endblock%} 
+        {%endblock%}
     </head>
 </html>
+{%endblock%}

@@ -59,8 +59,9 @@ def main(Input):
     # print(nums)
     # print(neg_num)
     length = len(nums)
-    equation = sum(nums)/length
-    note_thing = "Your text has a polarity score of "+str(equation)
+    equation = sum(nums)
+    note_thing = "Your text has a polarity score of " + \
+        str(int(equation))+" your average score is "+str(int(equation/length))
 
     note_final = note_thing  # +"\n"+note_thing2
     # print(note_final)

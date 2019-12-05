@@ -19,13 +19,12 @@ import os
 def main(Input):
     regex = re.compile("([\w]*)[\s]([\d\S]{2}|[\d]{1})[\n]")
     root = os.path.dirname(os.path.abspath("AFINN-111.txt"))
-    read = open(os.path.join(root,'Corpus/AFINN-111.txt'),'r')
+    read = open(os.path.join(root,'app/Corpus/AFINN-111.txt'),'r')
     corpusThing = read.read()
     real_file = str(Input.lower())
     pos_num = 0
     neg_num = 0
     count = 0
-    matches = []
     #_word = input("Enter the word you want to search for: ")
     emotion_words = {}
     #emotion_words = {"happy":0,"excited":0,"good":0,
@@ -55,10 +54,8 @@ def main(Input):
                         check = float(emotion_words[emo_wrd])
                         if check > 0:
                             pos_num += int(emotion_words[emo_wrd])
-                            matches.append("(p) "+x)
                         elif check < 0:
                             neg_num += int(emotion_words[emo_wrd])
-                            matches.append("(n) "+x)
                         times += 1
                         break
     print(pos_num)
@@ -80,7 +77,7 @@ def main(Input):
         
     note_final = note_thing#+"\n"+note_thing2
     print(note_final)
-    return note_final,Input,matches,
+    return note_final,Input
 #main("hello i like some kind of food")
 if __name__ == '__main__':
     globals()[sys.argv[1]](sys.argv[2])

@@ -1,7 +1,5 @@
 #TEB Assignment Note
 
-import re
-
 import nltk
 
 from flask import Flask, render_template
@@ -10,36 +8,27 @@ from nltk.corpus import wordnet
 
 import sys
 
-nltk.download('wordnet')
+nltk.download('wordnet') 
 
 import io
 
-import os
-
 def main(Input):
-    regex = re.compile("([\w]*)[\s]([\d\S]{2}|[\d]{1})[\n]")
-    root = os.path.dirname(os.path.abspath("AFINN-111.txt"))
-    read = open(os.path.join(root,'Corpus/AFINN-111.txt'),'r')
-    corpusThing = read.read()
-    real_file = str(Input.lower())
-    pos_num = 0
-    neg_num = 0
+    #_file = input("Enter the file path of the text you want to search: ")
+    #read = open(_file,'r')
+    #real_file = read.read()
+    real_file = Input.lower()
+    #print(real_file)
+    #print(real_file)
     count = 0
-    matches = []
     #_word = input("Enter the word you want to search for: ")
-    emotion_words = {}
-    #emotion_words = {"happy":0,"excited":0,"good":0,
-    #"sad":0,"mad":0,"bad":0}
+    emotion_words = {"happy":0,"excited":0,
+    "sad":0,"mad":0}
     new_corp = nltk.WordPunctTokenizer().tokenize(real_file)
     #_pos = nltk.pos_tag(nltk.word_tokenize(_word))
     #print(_pos)
     #thing = nltk.wsd.lesk(lang_,_word)
     #print(thing)
-    print(new_corp)
-
-    for thing in regex.finditer(corpusThing):
-        emotion_words[thing.group(1)] = thing.group(2)
-    print(emotion_words)
+    #print(new_corp)
 
     for x in new_corp:
         #print(x," word")
@@ -50,37 +39,29 @@ def main(Input):
                 for i in _syns.lemmas():
                     #print(i.name()," Synon")
                     if x == i.name() and times <= 0:
-                        print(x," word_in_sent")
-                        print(i.name()," matched syn")
-                        check = float(emotion_words[emo_wrd])
-                        if check > 0:
-                            pos_num += int(emotion_words[emo_wrd])
-                            matches.append("(p) "+x)
-                        elif check < 0:
-                            neg_num += int(emotion_words[emo_wrd])
-                            matches.append("(n) "+x)
+                        #print(x," word_in_sent")
+                        #print(i.name()," matched syn")
+                        emotion_words[emo_wrd] += 1
                         times += 1
                         break
-    print(pos_num)
-    print(neg_num)
-    total_polar = pos_num+neg_num
-    note_thing = "Your text has a polarity score of "+str(total_polar) 
-    #if total_polar == 0:
-        #note_final = note_thing+"\n"+"We were unable to determine the emotion behind your text!"
-    #elif total_polar <= 0:
-        #neg_equation = 100
-        #note_final = note_thing+"\n"+"Your notes are "+str(neg_equation)+"% percent negative."
-    #elif neg_num <= 0 and pos_num >= 1:
-        #pos_equation = 100
-        #note_final = note_thing+"\n"+"Your notes are "+str(pos_equation)+"% percent positive."
-    #elif pos_num >= 0 and neg_num >= 0:
-        #pos_equation = int((pos_num)/((pos_num)+(neg_num))*(100))
-        #neg_equation = int((neg_num)/((pos_num)+(neg_num))*(100))
-        #note_thing2 = "Your notes are "+str(pos_equation)+"% percent positive and "+str(neg_equation)+"% percent negative"
+    pos_num = (emotion_words["happy"]+emotion_words["excited"])
+    neg_num = (emotion_words["sad"]+emotion_words["mad"])
+    note_thing = "Your text has found "+str(pos_num)+" instances of positivity and "+str(neg_num)+" instances of negativity." 
+    if pos_num == 0 and neg_num == 0:
+        note_final = note_thing+"\n"+"We were unable to determine the emotion behind your text!"
+    elif pos_num <= 0 and neg_num >= 1:
+        neg_equation = 100
+        note_final = note_thing+"\n"+"Your notes are "+str(neg_equation)+"% percent negative."
+    elif neg_num <= 0 and pos_num >= 1:
+        pos_equation = 100
+        note_final = note_thing+"\n"+"Your notes are "+str(pos_equation)+"% percent positive."
+    elif pos_num >= 0 and neg_num >= 0:
+        pos_equation = int((pos_num)/((pos_num)+(neg_num))*(100))
+        neg_equation = int((neg_num)/((pos_num)+(neg_num))*(100))
+        note_thing2 = "Your notes are "+str(pos_equation)+"% percent positive and "+str(neg_equation)+"% percent negative"
         
-    note_final = note_thing#+"\n"+note_thing2
-    print(note_final)
-    return note_final,Input,matches,
-#main("hello i like some kind of food")
+        note_final = note_thing+"\n"+note_thing2
+    return note_final,Input
+
 if __name__ == '__main__':
     globals()[sys.argv[1]](sys.argv[2])
